@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Concrete\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BaseProject\BaseProject.csproj" />
   </ItemGroup>
 

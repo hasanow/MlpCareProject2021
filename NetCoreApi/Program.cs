@@ -1,6 +1,3 @@
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using Business.DependencyResolvers.AutoFac;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -9,10 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Autofac.Extras.DynamicProxy;
-using BaseProject.Utilities.Interceptors;
 
-namespace NetCoreApiWithAngulr
+namespace NetCoreApi
 {
     public class Program
     {
@@ -22,14 +17,10 @@ namespace NetCoreApiWithAngulr
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args).UseServiceProviderFactory(new AutofacServiceProviderFactory())
-            .ConfigureContainer<ContainerBuilder>(builder =>
-            {
-                builder.RegisterModule(new AutoFacBusinessModule());                      
-            }).ConfigureWebHostDefaults(webBuilder =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-                
     }
 }

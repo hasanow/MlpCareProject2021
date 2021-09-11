@@ -1,0 +1,33 @@
+<div class="row">
+    <table class="table table-bordered text-light">
+      <thead>
+        <tr>
+          <th colspan="3" class="text-right">
+            <button class="btn btn-light " style="margin-right: 10px;;" (click)="GetUsers()">
+              Listeyi Yenile
+            </button>
+            <button class="btn btn-primary " (click)="UpdateUser()">
+              Kullanıcı Ekle
+            </button>
+          </th>
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>User</th>
+          <th>Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users;let i=index;">
+            <td>{{i+1}}</td>           
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>
+              <div class="col-md-12">
+                <button class="btn float-left btn-danger" style="margin-right: 10px;" (click)="DeleteUser(user)">Sil</button>
+                <button class="btn float-left btn-primary" (click)="UpdateUser(user)">Güncelle</button>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+</div>
